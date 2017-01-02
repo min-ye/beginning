@@ -1,0 +1,2 @@
+Main-Class: com.lia.beginning.java.HelloWorld
+

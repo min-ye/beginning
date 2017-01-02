@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  <bean id="brick" class="com.lia.beginning.spring.aop.Brick">
+  </bean>
+  
+  <bean id="brickAfterReturnBean" class="com.lia.beginning.spring.aop.BrickAfterReturn" />
+  <bean id="brickBeforeMethodBean" class="com.lia.beginning.spring.aop.BrickBeforeMethod" />
+  <bean id="brickThrowExceptionBean" class="com.lia.beginning.spring.aop.BrickThrowException" />
+  <bean id="brickAroundMethodBean" class="com.lia.beginning.spring.aop.BrickAroundMethod" />
+
+  <bean id="brickProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+    <property name="target" ref="brick" />
+    <property name="interceptorNames">
+      <list>
+        <!--<value>brickBeforeMethodBean</value>
+        <value>brickAfterReturnBean</value>
+        <value>brickThrowExceptionBean</value>-->
+        <value>brickAroundMethodBean</value>
+      </list>
+    </property>
+  </bean>
+</beans>
